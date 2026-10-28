@@ -1,4 +1,4 @@
-name: Python CI / Check
+name: Python CI
 
 on:
   push:
@@ -13,17 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run check/test
+      - name: Run test
         run: |
-          echo "تم فحص وتثبيت متطلبات مشروع البايثون بنجاح!"
+          echo "تم التثبيت بنجاح وجاهز للتشغيل!"
